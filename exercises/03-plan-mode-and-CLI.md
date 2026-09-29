@@ -13,11 +13,11 @@ The feature we'll plan and build is **task reordering by drag-and-drop**.
 
 ### Why rubber-duck?
 
-The rubber-duck agent (added in Copilot CLI 1.0.42, available behind `/experimental`) reviews the current plan with a *complementary model* from a different model family.
+The rubber-duck agent reviews the current plan with a *complementary model* from a different model family. It has been enabled by default since Copilot CLI 1.0.58; you can also call it directly with `/rubber-duck`.
 
 ### Steps
 
-1. Make sure you have the latest Copilot CLI:
+1. Make sure you have the latest Copilot CLI (it requires Node.js 22 or later):
     ```bash
     copilot --version
     copilot update   # or: npm i -g @github/copilot@latest
@@ -28,11 +28,11 @@ The rubber-duck agent (added in Copilot CLI 1.0.42, available behind `/experimen
     copilot
     ```
 
-1. Enable experimental features (this unlocks the rubber-duck / critic agent):
+1. Optional: on Copilot CLI versions older than 1.0.58, enable experimental features to unlock the rubber-duck agent:
     ```
     /experimental on
     ```
-    The CLI restarts automatically. Run `/experimental` afterwards to confirm the feature list.
+    The CLI restarts automatically. Newer versions include rubber duck by default.
 
 1. Enter Plan mode and describe the feature. Either press `Shift+Tab` until the mode indicator shows **Plan**, or use the slash command in one go:
     ```
@@ -48,6 +48,7 @@ The rubber-duck agent (added in Copilot CLI 1.0.42, available behind `/experimen
     ```
     Critique this plan with the rubber-duck agent.
     ```
+    (Equivalent: `/rubber-duck What does this plan miss?`)
     A complementary model now reviews the plan and reports its findings inline. Read the critique carefully.
 
 1. Revise the plan based on the critique. For example:

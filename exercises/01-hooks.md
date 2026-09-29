@@ -11,7 +11,7 @@ A starter file is included at [.github/hooks/hook_demo.json](../.github/hooks/ho
 
 ## 📋 Exercise 1.1: Hooks
 
-1. **Enable the starter hook.** Uncomment the `sessionStart` block in `hook_demo.json`, start a fresh Copilot Chat session, and confirm a new line appears in `logs/session.log`.
+1. **Enable the starter hook.** Uncomment the `sessionStart` block in `hook_demo.json` and **delete the remaining commented-out block**. Hook files must be plain JSON, and any leftover `/* */` comment stops the hooks from loading. Start a fresh Copilot session and confirm that a new line appears in `logs/session.log`.
 
 1. **Log every prompt.** Add a `userPromptSubmitted` hook that appends a timestamped line to `logs/session.log`. Ask Copilot to help:
     ```
@@ -20,4 +20,6 @@ A starter file is included at [.github/hooks/hook_demo.json](../.github/hooks/ho
     ```
 
 1. **Close the loop.** Add a `sessionEnd` hook that appends `Session ended: ...` to `logs/session.log`. End the session and review the full audit trail.
+
+    > VS Code has no `sessionEnd` event. Do this step in the **Copilot CLI**: run `copilot`, send a prompt, then type `/exit`.
 

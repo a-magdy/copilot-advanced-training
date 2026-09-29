@@ -13,14 +13,14 @@ OpenSpec is a lightweight, AI-friendly workflow that captures proposed changes a
     ```bash
     npm install -g @fission-ai/openspec@latest
     ```
-2. Initialize OpenSpec in this repository:
+2. Initialize OpenSpec from the root of this repository (OpenSpec requires Node.js 20.19 or later):
     ```bash
-    cd copilot-training-gantt-chart
     openspec init
     ```
 3. Select GitHub Copilot from the menu.
 4. Inspect the `.github/prompts` and `.github/skills` directories. You should see the OpenSpec tools listed there.
-5. Without executing any commands, verify that the OpenSpec slash commands are available in chat by typing `/opsx-` and checking that the commands appear in the suggestion list.
+5. Reload VS Code (**Developer: Reload Window**). The `/opsx-*` commands are prompt files, so use them in **VS Code Copilot Chat**; the Copilot CLI doesn't read `.github/prompts`.
+6. Without executing any commands, verify that the OpenSpec slash commands are available in chat by typing `/opsx-` and checking that the commands appear in the suggestion list.
 
 ## 🔄 Exercise 5.2: The Default OpenSpec Workflow
 
@@ -65,7 +65,12 @@ Let's use OpenSpec to specify and implement a feature that lets users add milest
 ## 👣 Bonus Exercise 5.4: Step-by-step approach
 You can also generate the OpenSpec artifacts one at a time, validating each before proceeding to the next.
 
-1. This time, use `/opsx-new` instead of `opsx-propose` to create a new feature:
+1. `/opsx-new` and `/opsx-continue` are part of OpenSpec's expanded workflow, so enable it first, then reload VS Code:
+    ```bash
+    openspec config profile   # select the expanded workflows
+    openspec update
+    ```
+1. This time, use `/opsx-new` instead of `/opsx-propose` to create a new feature:
     ```
     /opsx-new Enable users to define the color of each task and change it at any point.
     ```
