@@ -22,7 +22,7 @@ Let's use APM to install an APM package.
     ```bash
     apm install microsoft/apm-sample-package#v1.0.0 --target copilot
     ```
-1. Inspect the files created in the `skills` and `agents` folders. You should now be able to use the agents and skills installed by APM.
+1. Inspect the files created in `.agents/skills/` (APM's shared skills location) and in `.github/agents/`, `.github/prompts/` and `.github/instructions/`. You should now be able to use the agents and skills installed by APM.
 1. Notice that APM also created an `apm.yml` file to track APM dependencies. You could commit this file to the repository to share the same set of dependencies across the team.
 
 ## ➕ Exercise 2.3: Add more dependencies
@@ -45,7 +45,7 @@ Let's add another dependency to the APM configuration file.
         mcp:
         - microsoft/playwright-mcp
     ```
-1. Run `apm install` and check `.vscode/mcp.json`: it should now contain the Playwright MCP configuration.
+1. Run `apm install` and check `.vscode/mcp.json`: it should now contain the Playwright MCP configuration. If the file isn't created, add `vscode` to `targets:` in `apm.yml` (or run `apm install --target copilot,vscode`).
 
 ## 🛠️ Exercise 2.4: Creating an APM package
 
@@ -76,9 +76,9 @@ An APM package can be released simply by creating a Git repository with a specif
     ```bash
     apm pack --archive -o ./dist
     ```
-1. Check the resulting archive under `dist`.
+1. Check the resulting archive under `dist`. Current APM versions produce a `.zip` file (add `--archive-format tar.gz` for a `.tar.gz`).
 1. Switch back to the Copilot training project and install the local bundle:
     ```bash
-    apm install path/to/my-apm-package-1.0.0.tar.gz
+    apm install path/to/my-apm-package/dist/my-apm-package-1.0.0.zip
     ```
 1. Verify that the agentic primitives defined in your APM package were added to the project.

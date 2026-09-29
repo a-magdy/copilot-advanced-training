@@ -8,6 +8,10 @@ Repo-wide conventions live in `.github/copilot-instructions.md` — follow them.
 
 ## Source of truth
 
+All paths below are relative to the repository root, which is your working
+directory. The Ralph files live in the `ralph/` directory: the PRD is
+`ralph/PRD.md` and the progress log is `ralph/progress.md`.
+
 - **`PRD.md`** is the product requirements document. It contains the full list
   of stories / tasks for this project, each with a checkbox:
   - `- [ ]` = not yet implemented
@@ -15,7 +19,7 @@ Repo-wide conventions live in `.github/copilot-instructions.md` — follow them.
 - **`progress.md`** is the running log of what has been done and what was
   learned. You append to it every iteration.
 
-If `PRD.md` does not exist, stop immediately and do nothing — the loop has
+If `ralph/PRD.md` does not exist, stop immediately and do nothing — the loop has
 nothing to work on.
 
 ## What to do each iteration
